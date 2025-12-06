@@ -6,7 +6,7 @@ const poll = {
   answers: new Array(4).fill(0),
   // [0,0,0,0]
   registerNewAnswer: function () {
-    const registerInput = Number(
+    const registerInput = Number(// get answer
       prompt(`${this.question}
 ${this.options[0]}
 ${this.options[1]}
@@ -14,6 +14,7 @@ ${this.options[2]}
 ${this.options[3]}
 (write your option number)`)
     );
+    // register answer  
     if (registerInput >= 0 && registerInput <= 3) {
       this.answers[registerInput] += 1;
     } else {
@@ -23,7 +24,6 @@ ${this.options[3]}
     this.displayResults();
     this.displayResults("string");
   },
-
   displayResults(type = "array") {
     if (type === "array") {
       console.log(this.answers);
