@@ -14,12 +14,7 @@ ${this.options[3]}
 `);
     const registerInput = Number(prompt("(write your option number)"));
     if (registerInput >= 0 && registerInput <= 3) {
-      for (let counter = 0; counter <= 3; counter++) {
-        if (counter === registerInput) {
-          this.answers[counter] += 1;
-          break;
-        }
-      }
+      this.answers[registerInput] += 1;
     } else {
       console.log("Wrong Number!");
     }
