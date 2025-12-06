@@ -6,19 +6,30 @@ const poll = {
   answers: new Array(4).fill(0),
   // [0,0,0,0]
   registerNewAnswer: function () {
-    console.log(`${this.question}
+    const registerInput = Number(
+      prompt(`${this.question}
 ${this.options[0]}
 ${this.options[1]}
 ${this.options[2]}
-${this.options[3]}  
-`);
-    const registerInput = Number(prompt("(write your option number)"));
+${this.options[3]}
+(write your option number)`)
+    );
     if (registerInput >= 0 && registerInput <= 3) {
       this.answers[registerInput] += 1;
     } else {
       console.log("Wrong Number!");
     }
-    console.log(this.answers);
+
+    this.displayResults();
+    this.displayResults("string");
+  },
+
+  displayResults(type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else if (type === "string") {
+      console.log(`Poll results are ${this.answers.join(", ")}`);
+    }
   },
 };
 
